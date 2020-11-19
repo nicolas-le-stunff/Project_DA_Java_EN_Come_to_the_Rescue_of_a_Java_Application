@@ -19,6 +19,7 @@ public class TreatmentSymptomsDataList  {
         countBySymptoms();
         WriteResult write = new WriteResult();
         write.GenerateTxT(OrderedSymptomsByName());
+        System.out.println(OrderedSymptomsByName());
     }
 
         /**
@@ -33,7 +34,7 @@ public class TreatmentSymptomsDataList  {
      *
      * @return a list with key: Symptoms / Values: number of symptoms orderder by names
      */
-    public List<Map.Entry<String, Integer>> OrderedSymptomsByName(){
+    private List<Map.Entry<String, Integer>> OrderedSymptomsByName(){
       Map<String,Integer> map = new TreeMap<>(arrayByKeyValue);
         return formatToArrayList(map);
     }

@@ -12,7 +12,7 @@ public class WriteResult {
     }
 
     /**
-     * Write the result in file
+     * Write the result in file.txt
      * @param entries List
      * @throws IOException
      */

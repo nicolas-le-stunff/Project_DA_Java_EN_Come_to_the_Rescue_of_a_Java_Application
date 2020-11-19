@@ -3,13 +3,13 @@ package com.hemebiotech.analytics;
 public class AnalyticsCounter {
 
 	public static void main(String[] args) throws Exception {
-		TreatmentSymptomsDataList treatmentSymptomsDataList = new TreatmentSymptomsDataList("src/resources/symptoms.txt");
-
-
-		System.out.println("Par symptoms et trié");
-		System.out.println(treatmentSymptomsDataList.OrderedSymptomsByName());
-
+		if(args.length > 0  ){
+			for (String value:args) {
+				System.out.println("Par symptoms et trié");
+				TreatmentSymptomsDataList treatmentSymptomsDataList = new TreatmentSymptomsDataList(value);
+			}
+		}else{
+			System.out.println("Aucun fichier trouvé, merci d'inserer en argument la liste des symptoms.");
+		}
 	}
-
-
 }
