@@ -1,5 +1,6 @@
 package com.hemebiotech.analytics;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.*;
 
@@ -12,20 +13,19 @@ public class TreatmentSymptomsDataList  {
      *
      * @param filepath a full or partial path to file with symptom strings in it, one per line
      */
-    public TreatmentSymptomsDataList(String filepath) throws IOException {
+    public TreatmentSymptomsDataList(BufferedReader reader ) throws IOException {
 
-        ReadSymptomDataFromFile readSymptomDataFromFile = new ReadSymptomDataFromFile(filepath);
+        ReadSymptomDataFromFile readSymptomDataFromFile = new ReadSymptomDataFromFile(reader);
         this.listSymptoms = readSymptomDataFromFile.GetSymptoms();
         countBySymptoms();
         WriteResult write = new WriteResult();
         write.GenerateTxT(OrderedSymptomsByName());
-        System.out.println(OrderedSymptomsByName());
     }
 
-        /**
-         *
-         * @return a list with key: Symptoms / Values: number of symptoms
-         */
+    /**
+     *
+     * @return a list with key: Symptoms / Values: number of symptoms
+     */
     public List<Map.Entry<String, Integer>> GetBySymptoms(){
         return formatToArrayList(arrayByKeyValue);
     }
@@ -34,8 +34,8 @@ public class TreatmentSymptomsDataList  {
      *
      * @return a list with key: Symptoms / Values: number of symptoms orderder by names
      */
-    private List<Map.Entry<String, Integer>> OrderedSymptomsByName(){
-      Map<String,Integer> map = new TreeMap<>(arrayByKeyValue);
+    public List<Map.Entry<String, Integer>> OrderedSymptomsByName(){
+        Map<String,Integer> map = new TreeMap<>(arrayByKeyValue);
         return formatToArrayList(map);
     }
 

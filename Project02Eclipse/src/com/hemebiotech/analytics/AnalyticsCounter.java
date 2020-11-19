@@ -1,15 +1,21 @@
 package com.hemebiotech.analytics;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
 public class AnalyticsCounter {
 
 	public static void main(String[] args) throws Exception {
-		if(args.length > 0  ){
-			for (String value:args) {
-				System.out.println("Ordonné par Symptoms ");
-				new TreatmentSymptomsDataList(value);
-			}
-		}else{
-			System.out.println("Aucun fichier trouvé, merci d'inserer en argument la liste des symptoms.");
-		}
+		InputStream is = AnalyticsCounter.class.getResourceAsStream("/resources/symptoms.txt");
+		BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+		TreatmentSymptomsDataList treatmentSymptomsDataList = new TreatmentSymptomsDataList(reader);
+
+
+		System.out.println("Par symptoms et trié");
+		System.out.println(treatmentSymptomsDataList.OrderedSymptomsByName());
+
 	}
+
+
 }
