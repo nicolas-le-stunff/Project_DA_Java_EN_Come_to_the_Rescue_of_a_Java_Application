@@ -8,8 +8,6 @@ public class AnalyticsCounter {
 				System.out.println("Ordonné par Symptoms ");
 				new TreatmentSymptomsDataList(value);
 			}
-		}else{
-			System.out.println("Aucun fichier trouvé, merci d'inserer en argument la liste des symptoms.");
 		}
 	}
 }
