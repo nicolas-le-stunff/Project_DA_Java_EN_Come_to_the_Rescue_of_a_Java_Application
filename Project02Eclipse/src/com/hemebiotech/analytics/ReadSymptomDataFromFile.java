@@ -12,11 +12,10 @@ import java.util.List;
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
 	private final String filepath;
-
 	public ReadSymptomDataFromFile(String filepath) {
 		this.filepath = filepath;
 	}
-	
+
 	@Override
 	public List<String> GetSymptoms() {
 		ArrayList<String> result = new ArrayList<String>();
