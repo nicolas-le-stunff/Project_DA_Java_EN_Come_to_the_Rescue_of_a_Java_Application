@@ -22,15 +22,7 @@ public class TreatmentSymptomsDataList  {
         write.generateTxT(orderedSymptomsByName());
         System.out.println(orderedSymptomsByName());
     }
-
-        /**
-         *
-         * @return a list with key: Symptoms / Values: number of symptoms
-         */
-    public List<Map.Entry<String, Integer>> GetBySymptoms(){
-        return formatToArrayList(arrayByKeyValue);
-    }
-
+    
     /**
      *
      * @return a list with key: Symptoms / Values: number of symptoms orderder by names
