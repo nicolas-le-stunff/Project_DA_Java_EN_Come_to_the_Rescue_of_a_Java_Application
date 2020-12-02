@@ -15,11 +15,11 @@ public class TreatmentSymptomsDataList  {
     public TreatmentSymptomsDataList(String filepath) throws IOException {
 
         ReadSymptomDataFromFile readSymptomDataFromFile = new ReadSymptomDataFromFile(filepath);
-        this.listSymptoms = readSymptomDataFromFile.GetSymptoms();
+        this.listSymptoms = readSymptomDataFromFile.getSymptoms();
         countBySymptoms();
         WriteResult write = new WriteResult();
-        write.GenerateTxT(OrderedSymptomsByName());
-        System.out.println(OrderedSymptomsByName());
+        write.generateTxT(orderedSymptomsByName());
+        System.out.println(orderedSymptomsByName());
     }
 
         /**
@@ -34,7 +34,7 @@ public class TreatmentSymptomsDataList  {
      *
      * @return a list with key: Symptoms / Values: number of symptoms orderder by names
      */
-    private List<Map.Entry<String, Integer>> OrderedSymptomsByName(){
+    private List<Map.Entry<String, Integer>> orderedSymptomsByName(){
       Map<String,Integer> map = new TreeMap<>(arrayByKeyValue);
         return formatToArrayList(map);
     }

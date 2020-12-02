@@ -16,7 +16,7 @@ public class WriteResult {
      * @param entries List
      * @throws IOException
      */
-    public void GenerateTxT(List<Map.Entry<String, Integer>> entries) throws IOException {
+    public void generateTxT(List<Map.Entry<String, Integer>> entries) throws IOException {
         FileWriter writer = new FileWriter("result.out");
         for( Map.Entry<String, Integer> entrie:entries) {
             writer.write(entrie + "\n");
