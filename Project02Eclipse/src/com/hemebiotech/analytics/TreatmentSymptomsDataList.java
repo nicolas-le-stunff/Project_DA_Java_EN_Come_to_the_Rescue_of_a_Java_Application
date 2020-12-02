@@ -16,10 +16,10 @@ public class TreatmentSymptomsDataList  {
     public TreatmentSymptomsDataList(BufferedReader reader ) throws IOException {
 
         ReadSymptomDataFromFile readSymptomDataFromFile = new ReadSymptomDataFromFile(reader);
-        this.listSymptoms = readSymptomDataFromFile.GetSymptoms();
+        this.listSymptoms = readSymptomDataFromFile.getSymptoms();
         countBySymptoms();
         WriteResult write = new WriteResult();
-        write.GenerateTxT(OrderedSymptomsByName());
+        write.generateTxT(orderedSymptomsByName());
     }
 
     /**
@@ -34,7 +34,7 @@ public class TreatmentSymptomsDataList  {
      *
      * @return a list with key: Symptoms / Values: number of symptoms orderder by names
      */
-    public List<Map.Entry<String, Integer>> OrderedSymptomsByName(){
+    public List<Map.Entry<String, Integer>> orderedSymptomsByName(){
         Map<String,Integer> map = new TreeMap<>(arrayByKeyValue);
         return formatToArrayList(map);
     }

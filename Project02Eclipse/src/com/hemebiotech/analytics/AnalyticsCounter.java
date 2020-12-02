@@ -13,7 +13,7 @@ public class AnalyticsCounter {
 
 
 		System.out.println("Par symptoms et trié");
-		System.out.println(treatmentSymptomsDataList.OrderedSymptomsByName());
+		System.out.println(treatmentSymptomsDataList.orderedSymptomsByName());
 
 	}
 
